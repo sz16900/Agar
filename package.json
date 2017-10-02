@@ -1,0 +1,27 @@
+{
+  "name": "agar",
+  "version": "1.0.0",
+  "description": "Agar.io clone from Code Train",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sz16900/Agar.git"
+  },
+  "keywords": [
+    "p5.js",
+    "sockets"
+  ],
+  "author": "Seth Zea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sz16900/Agar/issues"
+  },
+  "homepage": "https://github.com/sz16900/Agar#readme",
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
