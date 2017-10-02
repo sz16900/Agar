@@ -1,19 +1,21 @@
 function Blob(x, y, r) {
 	this.pos = createVector(x, y);
-	this.r = r
-	this.vel = createVector(0,0);
+	this.r = r;
+	this.vel = createVector(0, 0);
 	
 	this.show = function() {
-	fill(255);
-	ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
+		fill(255);
+		ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
 	}
 
 	this.update = function() {
 		// Sub the center of window bc user interaction is relative to center of window
-		var newvel = createVector(mouseX-width/2, mouseY-height/2);
+		var newvel = createVector(mouseX - width / 2, mouseY - height / 2);
+		newvel.div(50);
 		// Takes vector, however long it is and set it to that magnitude (speed?)
-		newvel.setMag(3);
+		// newvel.setMag(3);
 		// Lerp to the new velocity to create smoother turns (change 0.2 to see sharper turns)
+		newvel.limit(3);
 		this.vel.lerp(newvel, 0.2);
 		// set the velocity and position
 		this.pos.add(this.vel);
@@ -37,6 +39,13 @@ function Blob(x, y, r) {
 		else {
 			return false;
 		}
+	}
+
+	// Keep things in a constrainted world (window). Similar world
+
+	  this.constrain = function() {
+	    blob.pos.x = constrain(blob.pos.x, -width / 4, width / 4);
+	    blob.pos.y = constrain(blob.pos.y, -height / 4, height / 4);
 	}
 }
 
